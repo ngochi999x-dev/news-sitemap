@@ -3,15 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>News Sitemap Generator</title>
+    <title>Google News Sitemap Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #9b59b6, #8e44ad);
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        h1 {
+            margin-top: 50px;
+        }
+        form {
+            margin: 20px auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+            display: inline-block;
+        }
+        input[type="text"] {
+            padding: 10px;
+            width: 80%;
+            margin: 10px 0;
+            border: none;
+            border-radius: 3px;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+        }
+        button {
+            padding: 10px;
+            background: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
-    <h1>News Sitemap Generator</h1>
-    <p>Welcome to the News Sitemap Generator. This tool helps create a sitemap for news articles.</p>
-    <form action="/generate-sitemap" method="post">
-        <label for="article-url">Article URL:</label>
-        <input type="text" id="article-url" name="article-url" required>
-        <button type="submit">Add Article</button>
+    <h1>Google News Sitemap Generator</h1>
+    <form id="sitemapForm">
+        <input type="text" id="feedSource" placeholder="Enter Feed Source URL" required>
+        <button type="submit">Generate Sitemap</button>
     </form>
+    <div id="output"></div>
+    <script>
+        document.getElementById('sitemapForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const feedSource = document.getElementById('feedSource').value;
+            document.getElementById('output').innerHTML = `Generating sitemap for: ${feedSource}`;
+            // Add sitemap generation logic here
+        });
+        // Auto-generate sitemap on page load
+        window.onload = function() {
+            document.getElementById('output').innerHTML = 'Auto-generating sitemap...';
+            // Add auto-generation logic here
+        };
+    </script>
 </body>
 </html>
